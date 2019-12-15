@@ -6,10 +6,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class DefaultController {
+    
+     @GetMapping("*")
+    public String doDefaultRedirect() {
+        return "redirect:/registrations";
+    }
+    
+    @GetMapping("/")
+    public String helloWorld() {
+        return "seina";
+    }
 
-    @GetMapping("*")
-    public String helloWorld(Model model) {
-        model.addAttribute("message", "World!");
+    @GetMapping("/index")
+    public String read() {
         return "index";
+    }
+
+    @GetMapping("/profiili")
+    public String list() {
+        return "profiili";
+    }
+
+    @GetMapping("/etusivu")
+    public String form() {
+        return "seina.html";
     }
 }
